@@ -29,7 +29,7 @@ def main():
     original_rgb, gray_image = load_image(image_path)
 
     params = {
-        "percentage": 9.0,
+        "percentage": 2.0,
         "sigma_1": 100.0,
         "delta": 2e-4,
         "batch_size": 10000
