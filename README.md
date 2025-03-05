@@ -24,17 +24,18 @@ Below are the packages needed to run this project. Install with `pip` inside vir
 - **OpenCV** (for image I/O):
   pip install opencv-python
 
-
-
 - **NumPy**
   pip install numpy
 
 - **CUDA**
-  pip install cupy-cuda117
+  pip install cupy-cuda117 (adjust if your version differs)
 
 - **Matplotlib** (for visualization)
   pip install matplotlib
 
+- **tqdm** (for progress bars)
+  pip install tqdm
 
-
+- **google-colab** (if running package in google colab)
+  pip install google-colab
 
