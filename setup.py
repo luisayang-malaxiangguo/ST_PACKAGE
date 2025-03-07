@@ -7,9 +7,12 @@ setup(
     packages=find_packages(exclude=['tests*']),
     install_requires=[
         'opencv-python',
+        'scikit-image',
         'numpy',
         'matplotlib',
         'tqdm',
+        'scipy',
+        'google-colab'
         # Typically you do NOT include google-colab in install_requires
         # because Colab already provides it.
     ],
