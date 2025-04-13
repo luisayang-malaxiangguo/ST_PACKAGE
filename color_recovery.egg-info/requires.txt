@@ -1,7 +1,12 @@
 opencv-python
+scikit-image
 numpy
 matplotlib
 tqdm
+scipy
+
+[colab]
+google-colab
 
 [cuda100]
 cupy-cuda100

@@ -1,10 +1,14 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.4
 Name: color_recovery
 Version: 0.1.0
 Requires-Dist: opencv-python
+Requires-Dist: scikit-image
 Requires-Dist: numpy
 Requires-Dist: matplotlib
 Requires-Dist: tqdm
+Requires-Dist: scipy
+Provides-Extra: colab
+Requires-Dist: google-colab; extra == "colab"
 Provides-Extra: cuda100
 Requires-Dist: cupy-cuda100; extra == "cuda100"
 Provides-Extra: cuda101

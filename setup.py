@@ -11,12 +11,12 @@ setup(
         'numpy',
         'matplotlib',
         'tqdm',
-        'scipy',
-        'google-colab'
+        'scipy'
         # Typically you do NOT include google-colab in install_requires
         # because Colab already provides it.
     ],
     extras_require={
+        "colab": ["google-colab"],
         # CUDA 10.x series
         'cuda100': ['cupy-cuda100'],  # CUDA 10.0
         'cuda101': ['cupy-cuda101'],  # CUDA 10.1
