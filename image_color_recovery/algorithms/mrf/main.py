@@ -44,7 +44,7 @@ def run_mrf_demo():
     b_gt = np.clip(lab_img[:, :, 2], -128, 128)
 
     # Simulate partial color cues
-    known_percentage = 10
+    known_percentage = 1
     mask = np.random.rand(height, width) < (known_percentage / 100.0)
     a_known = np.where(mask, a_gt, np.nan)
     b_known = np.where(mask, b_gt, np.nan)
