@@ -74,8 +74,7 @@ def solve_channel_iterative(
 
     x0 = np.zeros_like(b_vector)
     x_final, info = spla.cg(
-        matrix_csr, b_vector, x0, tol,
-        maxiter, callback=cg_callback
+        matrix_csr, b_vector, x0, tol
     )
     channel_recovered = x_final.reshape(height, width)
     return channel_recovered, info
