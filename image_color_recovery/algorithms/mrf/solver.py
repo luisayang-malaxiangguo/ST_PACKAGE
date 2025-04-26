@@ -18,7 +18,7 @@ def solve_channel_direct(lightness_channel, channel_known, sigma):
     channel_known : np.ndarray, shape (height, width)
         Known values for the channel; NaN where unknown.
     sigma : float
-        Gaussian parameter for weighting neighbors.
+        Parameter for weighting neighbors.
 
     Returns
     -------

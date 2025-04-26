@@ -58,7 +58,7 @@ def recover_color_image_gpu(
     recovered_image = cp.zeros((rows, cols, 3), dtype=cp.float32)
     total_pixels = all_pixels.shape[0]
 
-    print("Reconstructing image in batches...")
+    print("Reconstructing image in batches")
     for start in tqdm(range(0, total_pixels, batch_size), desc="Reconstructing Image"):
         end = min(start + batch_size, total_pixels)
         pixel_chunk = all_pixels[start:end]

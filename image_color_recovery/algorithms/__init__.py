@@ -3,7 +3,7 @@ Algorithms subpackage.
 
 Currently available:
 - CSRBF interpolation
-- Diffusion-based PDE colorization
+- Gaussian Diffusion-Propagation colorization
 - MRF-based colorization
 """
 
@@ -13,11 +13,10 @@ from .csrbf import (
     solver as csrbf_solver,
     recovery as csrbf_recovery,
     utils as csrbf_utils,
-    csrbf_visualization,
     config as csrbf_config
 )
 
-# Diffusion-based PDE algorithm
+# Gaussian Diffusion-Propagation algorithm
 from .diffusion import (
     builder as diffusion_builder,
     solver as diffusion_solver,

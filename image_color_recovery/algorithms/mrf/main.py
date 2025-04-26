@@ -1,5 +1,5 @@
 """
-Demo script for MRF-based colorization using partial color cues.
+Demo script for MRF-based colorization using partial color information.
 """
 
 import io
@@ -54,7 +54,7 @@ def run_mrf_demo():
     sigma_list = np.linspace(1, 50, 10)
     errors = []
 
-    print("\nPerforming grid search over sigma values...")
+    print("\nPerforming grid search over sigma values")
     for sigma_val in tqdm(sigma_list):
         a_temp = solve_channel_direct(lightness_channel, a_known, sigma_val)
         b_temp = solve_channel_direct(lightness_channel, b_known, sigma_val)
@@ -110,8 +110,8 @@ def run_mrf_demo():
     plt.tight_layout()
     plt.show()
 
-    # Demonstrate iterative solver for the optimal sigma
-    print("\n--- Demonstrate Iterative Solver for Optimal Sigma ---")
+    # Show iterative solver for the optimal sigma
+    print("\n Demonstrate Iterative Solver for Optimal Sigma")
     a_cg, _ = iterative_demo(lightness_channel, a_known, a_gt, opt_sigma)
     b_cg, _ = iterative_demo(lightness_channel, b_known, b_gt, opt_sigma)
     nerr_cg = compute_mrf_normalized_error(a_cg, b_cg, a_gt, b_gt)
@@ -139,7 +139,7 @@ def iterative_demo(lightness_channel, channel_known, channel_gt, sigma):
     plt.figure(figsize=(7, 5))
     plt.plot(range(len(error_list)), error_list, marker='o')
     plt.xlabel("Iteration")
-    plt.ylabel("Error (Normalized)")
+    plt.ylabel("Error")
     plt.title(f"MRF Iterative Solver (sigma={sigma:.2f})")
     plt.grid(True)
     plt.show()

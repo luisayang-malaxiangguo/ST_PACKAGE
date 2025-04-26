@@ -1,5 +1,5 @@
 """
-Neighbor and weight builder for PDE-based colorization.
+Neighbor and weight builder for Gaussian Diffusion-Propagation colorization.
 """
 
 import cupy as cp
@@ -7,8 +7,9 @@ import cupy as cp
 
 def build_neighbor_indices_and_weights(gray_gpu, sigma=0.1):
     """
-    Build neighbor indices and weights for PDE colorization using a 4-neighbor
-    system. The weights are Gaussian-based on intensity differences.
+    Build neighbor indices and weights for Gaussian Diffusion-Propagation 
+    colorization using a 4-neighbor system. The weights are Gaussian-based
+    on intensity differences.
 
     Parameters
     ----------
@@ -48,7 +49,7 @@ def build_neighbor_indices_and_weights(gray_gpu, sigma=0.1):
                     nbr_idx = ny * width + nx
                     diff = center_val - gray_flat[nbr_idx]
                     w = cp.exp(-(diff * diff) / (2 * sigma * sigma))
-                    # Convert to float on host to avoid extra array overhead
+                    # Convert to float in CPU to avoid unnecessary array allocation
                     w = float(w)
                     neighbors[idx, k] = nbr_idx
                     weights[idx, k] = w

@@ -12,8 +12,6 @@ setup(
         'matplotlib',
         'tqdm',
         'scipy>=1.8.0'
-        # Typically you do NOT include google-colab in install_requires
-        # because Colab already provides it.
     ],
     extras_require={
         "colab": ["google-colab"],

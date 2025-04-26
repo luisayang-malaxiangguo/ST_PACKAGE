@@ -1,7 +1,7 @@
 """
-Kernel functions for CSRBF interpolation.
+Kernel function for CSRBF interpolation.
 
-Contains the CSRBF function and the routine for generating the kernel matrix on the GPU.
+Contains the CSRBF function for generating the kernel matrix on the GPU.
 """
 
 import cupy as cp

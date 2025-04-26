@@ -12,7 +12,7 @@ from image_color_recovery.algorithms.mrf import builder, solver, utils
 class TestMRFBuilder(unittest.TestCase):
     def test_build_mrf_system_known_pixels(self):
         """
-        Check that known pixels produce diagonal = 1 and correct b_vector.
+        Check known pixels produce diagonal = 1 and correct b_vector.
         """
         height, width = 2, 2
         lightness_channel = np.full((height, width), 50.0, dtype=np.float32)
@@ -41,7 +41,7 @@ class TestMRFBuilder(unittest.TestCase):
 
     def test_build_mrf_system_unknown_pixels(self):
         """
-        Check that unknown pixels get 1 + epsilon on diagonal.
+        Check unknown pixels get 1 + epsilon on diagonal.
         """
         height, width = 2, 2
         lightness_channel = np.array([[40.0, 45.0],
@@ -65,7 +65,7 @@ class TestMRFBuilder(unittest.TestCase):
 class TestMRFSolver(unittest.TestCase):
     def test_solve_channel_direct(self):
         """
-        Check that the direct solver returns an array of the correct shape.
+        Check direct solver returns an array of the correct shape.
         """
         height, width = 3, 3
         lightness_channel = np.full((height, width), 50.0, dtype=np.float32)
@@ -85,7 +85,7 @@ class TestMRFSolver(unittest.TestCase):
 
     def test_solve_channel_iterative(self):
         """
-        Check that the iterative solver (CG) runs and returns correct shape.
+        Check iterative solver (CG) runs and returns correct shape.
         """
         height, width = 2, 2
         lightness_channel = np.zeros((height, width), dtype=np.float32)

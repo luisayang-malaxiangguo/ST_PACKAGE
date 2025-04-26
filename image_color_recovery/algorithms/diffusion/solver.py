@@ -1,5 +1,5 @@
 """
-Solver for diffusion-based PDE colorization with error tracking.
+Solver for Gaussian Diffusion-Propagation colorization with error tracking.
 """
 
 import cupy as cp
@@ -7,7 +7,7 @@ from tqdm import trange
 from .builder import build_neighbor_indices_and_weights
 
 
-def pde_colorize_3ch_with_error(
+def diffusion_colorize_3ch_with_error(
     gray_gpu,
     known_mask_gpu,
     known_values_3ch_gpu,
@@ -16,7 +16,7 @@ def pde_colorize_3ch_with_error(
     max_iters=35
 ):
     """
-    Perform PDE colorization (in [0,1] scale) with error tracking.
+    Perform Gaussian Diffusion-Propagation colorization (in [0,1] scale) with error tracking.
 
     Parameters
     ----------

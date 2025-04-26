@@ -16,6 +16,3 @@ from .utils import (
     load_image,
     generate_random_indices
 )
-
-# Visualization for CSRBF
-from .csrbf_visualization import visualize_results

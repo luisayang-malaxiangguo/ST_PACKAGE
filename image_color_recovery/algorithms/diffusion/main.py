@@ -1,5 +1,5 @@
 """
-Example script for PDE-based colorization. 
+Example script for Gaussian Diffusion-Propagation colorization. 
 Uses Google Colab file upload and a basic grid search for sigma.
 """
 
@@ -10,8 +10,7 @@ import matplotlib.pyplot as plt
 from skimage import color
 from tqdm import trange
 from google.colab import files
-
-from .solver import pde_colorize_3ch_with_error
+from .solver import diffusion_colorize_3ch_with_error
 
 
 def downsample_rgb(img, scale):
@@ -35,11 +34,11 @@ def downsample_rgb(img, scale):
     return cv2.resize(img, (new_w, new_h), interpolation=cv2.INTER_AREA)
 
 
-def run_pde_demo():
+def run_diffusion_demo():
     """
-    Demonstration of the PDE-based diffusion colorization method.
+    Demonstration of the  Gaussian Diffusion-Propagation colorization method.
     """
-    print("Please upload a color image (used as ground truth).")
+    print("Please upload a color image.")
     uploaded = files.upload()
     base_path = list(uploaded.keys())[0]
     img_bgr = cv2.imread(base_path)
@@ -76,12 +75,12 @@ def run_pde_demo():
     known_mask_gpu = cp.asarray(known_mask_cpu)
     known_values_3ch_gpu = cp.asarray(known_values_3ch_cpu)
 
-    # PDE parameters
+    # Gaussian Diffusion-Propagation parameters
     sigma_val = 0.1
     max_iters = 35
 
-    # Run PDE colorization
-    recovered_3ch_gpu, error_values = pde_colorize_3ch_with_error(
+    # Run Gaussian Diffusion-Propagation colorization
+    recovered_3ch_gpu, error_values = diffusion_colorize_3ch_with_error(
         gray_gpu,
         known_mask_gpu,
         known_values_3ch_gpu,
@@ -121,7 +120,7 @@ def run_pde_demo():
     max_iters_grid = 30
 
     for s_val in sigma_candidates:
-        rec_gpu, err_list = pde_colorize_3ch_with_error(
+        rec_gpu, err_list = diffusion_colorize_3ch_with_error(
             gray_gpu,
             known_mask_gpu,
             known_values_3ch_gpu,
@@ -162,4 +161,4 @@ def run_pde_demo():
 
 
 if __name__ == "__main__":
-    run_pde_demo()
+    run_diffusion_demo()

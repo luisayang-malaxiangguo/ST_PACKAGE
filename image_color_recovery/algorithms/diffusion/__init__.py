@@ -1,13 +1,13 @@
 """
-Diffusion-based PDE colorization for image color recovery.
+Gaussian Diffusion-Propagation colorization for image color recovery.
 """
 
 from .builder import build_neighbor_indices_and_weights
-from .solver import pde_colorize_3ch_with_error
-from .main import run_pde_demo
+from .solver import diffusion_colorize_3ch_with_error
+from .main import run_diffusion_demo
 
 __all__ = [
     "build_neighbor_indices_and_weights",
-    "pde_colorize_3ch_with_error",
-    "run_pde_demo"
+    "diffusion_colorize_3ch_with_error",
+    "run_diffusion_demo"
 ]
